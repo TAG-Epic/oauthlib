@@ -200,6 +200,8 @@ def prepare_bearer_headers(token, headers=None):
     :param headers:
     """
     headers = headers or {}
+    if "Authorization" in headers.keys():
+        return headers
     headers['Authorization'] = 'Bearer %s' % token
     return headers
 
